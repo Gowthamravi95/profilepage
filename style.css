@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.content{
+            animation-name: modal-animation;
+            animation-duration: 2s;
+            position: relative;
+}
+@keyframes modal-animation {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+.bg{
+    background-image: url(assets/images/background.jpg);
+}
