@@ -1,22 +1,43 @@
 *{
     margin: 0;
     padding: 0;
+   
+
 }
-.content{
-            animation-name: modal-animation;
-            animation-duration: 2s;
-            position: relative;
+ ul{
+    list-style-type: none;
 }
-@keyframes modal-animation {
-    from {
-        top: -100px;
-        opacity: 0;
+.html{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.html-level{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #000;
+}
+/* .image{
+    position: absolute;
+    left:0;
+    width:100%;
+    transition: all 1s ease-in-out;
+    animation: anim 2s linear;
+}
+.image_page{
+    height: 100vh;
+    position: relative;
+} */
+/* @keyframes anim{
+    0%{
+        bottom:-110%;
     }
-    to {
-        top: 0px;
-        opacity: 1;
+    90%{
+        bottom: 20%;
     }
-}
-.bg{
-    background-image: url(assets/images/background.jpg);
-}
+    100%{
+        bottom: 0;
+
+    }
+} */
