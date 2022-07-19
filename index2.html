@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="clock">
+            <div class="timer">00.00.00</div>
+        </div>
+        <div>
+            <button class="start">Start</button>
+            <button class="stop">Stop</button>
+            <button class="reset">reset</button>
+        </div>
+    </section>
+    <script>
+        const start=document.querySelector(".start"),
+        stop=document.querySelector('.stop'),
+        reset=document.querySelector('.reset'),
+        timer=document.querySelector('.timer');
+        let count=0;
+       
+        start.addEventListener("click",()=>{
+            function stopWatch(){
+             timer.innerHTML=count;
+            count+=1;
+            
+        }
+        let stop1=setInterval(stopWatch,200);
+        stop.addEventListener('click',()=>{
+                clearInterval(stop1);
+        })
+        
+        reset.addEventListener("click",()=>{
+            let count1=0;
+            timer.innerHTML=count1;
+        }) 
+        })
+        
+       
+        
+    </script>
+</body>
+</html>
+	
+	
+	

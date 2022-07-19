@@ -1,43 +1,215 @@
-*{
-    margin: 0;
-    padding: 0;
+@media screen and ( min-width:576px) {
+    .main .hero span{
+        font-size: 1.3rem;
+        line-height: 5rem;
+    }
+    .main .hero h1{
+        font-size: 4rem;
+    }
+    .main .hero h2{
+        font-size: 4rem;
+    }
+    .main .hero p{
+        font-size: 1rem;
+        width: 500px;
+    }
+    .main .hero,.about,.education,.works{
+        padding: 10vh 10vh;
+        height: 80vh;
+    }
+    .about span{
+        font-size: 1.3rem;
+    }
+    .about h1{
+        font-size: 4rem;
+    }
+    .about h2{
+        font-size: 1.5rem;
+        line-height: 3rem;
+
+    }
+    .about p{
+        font-size: 1rem;
+        width: 500px;
+    }
+    .works h2{
+        font-size: 3rem;
+    }
    
+    .works-grid{
+        padding: 10vh 15vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:3vh;
+    }
+    .works-grid img{
+        width: 320px;
+        height: 200px;
+    }
+    .skill{
+        width: 160px;
+        height: 160px;
+    }
+    .skills{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+    }
+    svg{
+        width: 160px;
+        height: 160px;
+    }
+    .outer{
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        padding: 20px;
+    }
+    
+    .inner h2{
+        font-size: 1.2rem;
+    }
+    circle{
+        stroke-width: 10px;
+        stroke-dasharray: 437;
+        stroke-dashoffset: 437;
+        cx: 80px;
+        cy: 80px;
+        r: 70px;   
+    }
+    svg{
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    .skills{
+        padding-top: 5vh;
+        padding-left: 10vh;
+        height: 95vh;
+    }
+    .card-education-item{
+        width: 280px;
+        height:250px;
+        top:50%;
+        transform: translatey(-50%);
+        left:0;
+    }
+    .card-education-item h2{
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+    .education{
+        gap: 30px;
+    }
+    .education:before{
+        width: 1200px;
+        height: 10px;
+        top:34vh;
+        
+    }
+    .card-education-score img{
+        width: 70px;
+    }
+    .card-education-item:before{
+        width: 30px;
+        height: 30px;
+        top:-10vh;
+        transform: translatex(-50%);
+        left:50%;
+    }
+    .card-education-item:after{
+        width: 10px;
+        height: 42px;
+        top:-5.9vh;
+        transform: translatex(-50%);
+        left:50%;
+    }
+    .card-education-score{
+        padding: 40px;
+    }
+    .card-education-score p{
+        font-size: 2.3rem;
+    }
+    .card-education-name{
+        padding: 8px;
+        width: 259px;
+    }
+    .card-education-name h3{
+        font-size: 1.1rem;
+    }
+    .card-education-name p{
+        font-size: 0.9rem;
+    }
+    @keyframes anima90 {
+        100%{
+            stroke-dashoffset: 43.7;
+        }
+        
+    }
+    @keyframes anima85 {
+        100%{
+            stroke-dashoffset: 65.55;
+        }
+        
+    }@keyframes anima80 {
+        100%{
+            stroke-dashoffset: 87.4;
+        }
+        
+    }@keyframes anima75 {
+        100%{
+            stroke-dashoffset: 109.25 ;
+        }
+        
+    }
+    
+}
 
+@media screen and ( min-width:786px) {
+    
 }
- ul{
-    list-style-type: none;
-}
-.html{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
-.html-level{
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background-color: #000;
-}
-/* .image{
-    position: absolute;
-    left:0;
-    width:100%;
-    transition: all 1s ease-in-out;
-    animation: anim 2s linear;
-}
-.image_page{
-    height: 100vh;
-    position: relative;
-} */
-/* @keyframes anim{
-    0%{
-        bottom:-110%;
+
+
+@media screen and ( min-width:992px) {
+    
+    .title h2,.title p{
+        display: block;
     }
-    90%{
-        bottom: 20%;
+    .sidebar{
+        top:0;
+        left: 0;
     }
-    100%{
-        bottom: 0;
+    .skills{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+    
+    
+    .sidebar,.hero-right .image-box,.about-right .image-box{
+        display: block;
+    }
+    .nav{
+        display: none;
+    }
+    .main{
+        left: 200px;
+        top: 0;
+        width: 87vw;
 
     }
-} */
+    .main .hero,.about,.education{
+        padding-top: 20vh ;
+        flex-direction: row;
+    }
+    .hero-right img,.about-right img{
+        height: 400px;
+        display: block;
+    }   
+}
+
+@media screen and ( min-width:1200px) {
+    
+}
+
+@media screen and ( min-width:1400px) {
+    
+}

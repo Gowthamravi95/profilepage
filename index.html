@@ -1,112 +1,865 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gowtham Ravi | Profile Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="assets/icofont/icofont.min.css">
 
-    <link rel="stylesheet" href="style.css">
 
+
+<style>
+    .show{
+        display: block;
+    }
+    .hide{
+        display: none;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+
+    }
+    a{
+        all: unset;
+    }
+   
+    /* sidebar */
+    .sidebar{
+        width: 200px;
+        height: 100%;
+        border-right: 1px solid lightgray;
+        position: fixed;
+        background-color: #fff;
+        top:50px;
+        left: -201px;
+        transition: all 500ms linear;
+    }
+    .sidebar-left{
+        left: 0;
+    }
+    .nav{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        background-color: #000;
+        height: 50px;
+        position: fixed;
+        top:0;
+        z-index: 3;
+        width: 100vw;
+    }
+    .nav-title{
+        text-align: center;
+        margin: auto;
+        color: white;
+
+    }
+    .nav-title p{
+        color: #e31b6d;
+        font-size: 0.8rem;
+    }
+    .nav i{
+        font-size: 1.5rem;
+        color: #e31b6d;
+        cursor: pointer;
+    }
+    .title{
+       border-bottom: 2px solid lightgrey;
+       padding: 20px 10px ;
+       background-color: #000;
+       
+    }
+    .title img{
+      position: relative;
+      transform: translate(-50%);
+      left: 50%;
+      
+    }
+    .title h2{
+        font-size: 2rem;
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        display: none;
+    }
+    .title p{
+        color: #e31b6d;
+        text-align: center;
+        display: none;
+    }
+    .nav-item{
+        padding: 10px 30px;
+        display: flex;
+        cursor: pointer;
+    }
+    .nav-icon{
+        font-size: 1.2rem;
+        margin-right: 30px;
+    }
+    .nav-link{
+        font-size: 1.1rem;
+        font-weight: 300;
+        padding-top: 4px;
+    }
+    .nav-item:hover{
+        background-color: #fafafa;
+    }
+    .nav-icon-about{
+        color: #008073;
+        animation: nav-icon-ani 300ms linear;
+    }
+    .nav-link-about{
+        animation: nav-link-ani 300ms linear;
+    }
+    .nav-item-about:hover{
+        border-left: 2px solid #008073;
+    }
+    .nav-icon-project{
+        color: #00bcd4;
+        animation: nav-icon-ani 450ms linear;
+    }
+    .nav-link-project{
+        animation: nav-link-ani 450ms linear;
+    }
+    .nav-item-project:hover{
+        border-left: 2px solid #00bcd4;
+    }
+    .nav-icon-skill{
+        color: #3f51b5;
+        animation: nav-icon-ani 600ms linear;
+    }
+    .nav-link-skill{
+        animation: nav-link-ani 600ms linear;
+    }
+    .nav-item-skill:hover{
+        border-left: 2px solid #3f51b5;
+    }.nav-icon-education{
+        color: #9c27b0;
+        animation: nav-icon-ani 750ms linear;
+    }
+    .nav-link-education{
+        animation: nav-link-ani 750ms linear;
+    }
+    .nav-item-education:hover{
+        border-left: 2px solid #9c27b0;
+    }
+    .nav-icon-experience{
+        color: #f44336;
+        animation: nav-icon-ani 900ms linear;
+    }
+    .nav-link-experience{
+        animation: nav-link-ani 900ms linear;
+    }
+    .nav-item-experience:hover{
+        border-left: 2px solid #f44336;
+    }
+    .nav-icon-contact{
+        color: #ff9800;
+        animation: nav-icon-ani 1050ms linear;
+    }
+    .nav-link-contact{
+        animation: nav-link-ani 1050ms linear;
+    }
+    .nav-item-contact:hover{
+        border-left: 2px solid #ff9800;
+    }
+    .nav-item-bg{
+        animation: anim 300ms linear ;
+    }
+    /* sidebar */
+
+    /* main  */
+    .main{
+        width: 100vw;
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        z-index: -2;
+    }
+    .main .hero,.about,.education,.works{
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        
+        background-color: #0a192f;
+
+    }
+
+    .about,.skills{
+        background-color: white;
+    }
+    .skills{
+        padding: 20px 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        gap:18px;
+    }
+    .hero-left{
+        width: 750px;
+    }
+    .hero-right,.about-right{
+     margin: auto;
+     position: relative;
+     animation: hero-right 700ms linear ;
+     z-index: 2;
+    }
+    .about-right{
+     animation: about-right 700ms linear ;
+
+    }
+    .about-left{
+     margin: auto;
+
+    }
+    .main .hero span{
+        font-size: 0.9rem;
+        color: white;
+        line-height: 3rem;
+        animation: hero-left 500ms linear ;
+    }
+   
+    .main .hero h1{
+        color:#e31b6d;
+        font-size: 2rem;
+        font-weight: 600;
+        animation: hero-left 600ms linear ;
+
+    }
+    .main .hero h2{
+        color:#8892b0;
+        font-size: 1.7rem;
+        font-weight: 500;
+        line-height: 5rem;
+        animation: hero-left 700ms linear ;
+    }
+    .about span{
+        color: #000;
+        font-size: 0.9rem;
+        line-height: 3rem;
+
+    }
+    .about h1{
+        color:#e31b6d;
+        font-size: 2rem;
+        font-weight: 600;
+
+
+    }
+    .about h2{
+        color:#8892b0;
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 5rem;
+
+    }
+    .about p{
+        line-height: 1.3rem;
+        font-size: 0.9rem;
+        color: #8892b0;
+        width: 80vw;
+        margin-top: 15px;
+    }
+    .main .hero p{
+        line-height: 1.3rem;
+        font-size: 0.9rem;
+        color: #8892b0;
+        margin-top: 15px;
+        width: 80vw;
+    }
+    .hero-right img,.about-right img{
+       display: none;
+    }
+    .hero-right .image-box,.about-right .image-box{
+        border: 3px solid #e31b6d;
+        height: 400px;
+        width: 230px;
+        position: absolute;
+        z-index: -1;
+        border-radius: 10px;
+        left: -30px;
+        top:-20px;
+        display: none;
+    }
+   
+    .skill{
+        width: 120px;
+        height: 120px;
+        position: relative;
+       
+    }
+    svg{
+        width: 120px;
+        height: 120px;
+    }
+    .outer{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        /* background-color: #0a192f; */
+        /* border: 1px solid #0a192f; */
+        padding: 10px;
+        box-shadow: -19px -9px 69px -14px rgba(0,0,0,0.5);
+    }
+    .inner{
+        /* color: #e31b6d; */
+        color: #0a192f;
+        text-align: center;
+        padding-top: 30%;
+    }
+    .inner h2{
+        font-size: 1rem;
+    }
+    circle{
+        fill: none;
+        stroke: #e31b6d;
+        stroke-width: 8px;
+        stroke-dasharray: 312;
+        stroke-dashoffset: 312;
+        cx: 60px;
+        cy: 60px;
+        r: 50px;    
+
+
+    }
+    .per-65{
+        animation: anima 2s linear forwards;
+    }
+    svg{
+        position: absolute;
+        top:0;
+        left: 0;
+        
+    }
+    
+    .card-education-item{
+        background-color: #fff;
+        width: 240px;
+        height:180px;
+        position: relative;
+        text-align: center;
+        left:60%;
+        transform: translatex(-50%);
+    }
+    .card-education-item h2{
+        background-color: #e31b6d;
+        color: white;
+        padding: 5px;
+        font-size: 1.1rem;
+    }
+    .education{
+        gap: 15px;
+        position: relative;
+        
+    }
+    .card-education-item h2:before{
+        content: "";
+        width: 10px;
+        height: 202px;
+        background-color: white;
+        position: absolute;
+        border-radius: 8px;
+        left:-8.2vh;
+        
+    }
+    .card-education-item:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        left:-9vh;
+        transform: translatey(-50%);
+        top:50%;
+    }
+    .card-education-item:after{
+        content: "";
+        width: 42px;
+        height: 10px;
+        background-color: white;
+        position: absolute;
+        left:-5.9vh;
+        transform: translatey(-50%);
+        top:50%;
+    }
+    .card-education-score{
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+    }
+    .card-education-score p{
+        font-size: 1.8rem;
+        font-family: 'Indie Flower', cursive;
+    }
+    .card-education-score img{
+        width: 50px;
+    }
+    .card-education-name{
+        position: absolute;
+        bottom: 0;
+        padding: 5px;
+        background-color: #fafafa;
+        color: #8892b0;
+        transform: translatex(-50%);
+        left:50%;
+        width: 230px;
+    }
+    .card-education-name h3{
+        font-size: 1rem;
+    }
+    .card-education-name p{
+        font-size: 0.8rem;
+    }
+   
+
+    .works h2{
+        color: white;
+        font-size: 2rem;
+        font-weight: 600;
+        position: relative;
+    }
+    /* .works h2:after{
+        content: "";
+        width: 100px;
+        height: 5px;
+        border-radius: 10px;
+        background-color: #e31b6d;
+        position: absolute;
+        bottom: -15px;
+        margin-left: 15px;
+        left: 0;
+    } */
+    .works-grid{
+        padding: 30px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:3vh;
+    }
+
+    .works-grid img{
+        width: 250px;
+        height: 180px;
+    }
+
+    .hero-img-show,.about-img-show{
+        font-size: 2rem;
+        color: white;
+        position: absolute;
+        right: 40px;
+        cursor: pointer;
+    }
+    .about-img-show{
+        color: #0a192f;
+
+    }
+    @keyframes anima90 {
+        100%{
+            stroke-dashoffset: 31.2;
+        }
+        
+    }
+    @keyframes anima85 {
+        100%{
+            stroke-dashoffset: 46.8;
+        }
+        
+    }@keyframes anima80 {
+        100%{
+            stroke-dashoffset: 62.4;
+        }
+        
+    }@keyframes anima75 {
+        100%{
+            stroke-dashoffset: 78 ;
+        }
+        
+    }
+    /* animations  */
+    
+    @keyframes hero-left {
+        0%{
+            position: relative;
+            top: -50px;
+        opacity: 0;
+        }
+        100%{
+            position: relative;
+            top: 0px;
+            opacity: 1;
+        }
+    }
+    @keyframes hero-right {
+        0%{
+            right: -100px;
+           opacity: 0;
+        }
+        100%{
+            right: 0px;
+            opacity: 1;
+        }
+    }
+    @keyframes nav-link-ani {
+        0%{
+            transform: translatex(50px);
+        opacity: 0;
+        }
+        100%{
+            transform: translatex(0);
+            opacity: 1;
+        }
+    }
+    @keyframes nav-icon-ani {
+        0%{
+            transform: translatex(-50px);
+        opacity: 0;
+        }
+        100%{
+            transform: translatex(0);
+            opacity: 1;
+        }
+    }
+    @keyframes anim {
+        0%{
+            background-color: gray;
+        }
+        100%{
+            background-color: white;
+        }
+    }
+    /* animations */
+
+    /* responsive */
+    @media screen and (min-width:996px) {
+      
+    }
+
+    /* responsive */
+</style>
+
+<link rel="stylesheet" href="style.css">
 
 </head>
-  <body style="background-color: #e2f3f9; font-family: 'Montserrat', sans-serif;">
+<body>
 
-<main>
-    <section  >
-        <!-- navbar  -->
-        <nav class="navbar navbar-expand-lg navbar-dark  " style="background-color: #000;">
-            <div class="container" >
-            <!-- navbar content  -->
-                <a class="navbar-brand " href="#">Gowtham Ravi ( Web Developer )</a>
-                <!-- <img src="assets/images/logo.png" height="25px" alt=""> -->
-                <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
-                <!-- navbar collapsible content  -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item mx-2"><a class="nav-link " href="index.html"  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">Home</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link " href="#"  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2">About</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link " href="projects.html" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3">Project</a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="contact.html">Education </a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="contact.html">Expeience </a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="contact.html">Skills </a></li>
-                    <li class="nav-item mx-2"><a class="nav-link" href="contact.html">Contact </a></li>
+    <!-- nav -->
+    <div class="nav">
+        <div class="nav-toggle"><i class="icofont-navigation-menu"></i></div>
+        <div class="nav-title"><h2>Gowtham Ravi</h2> <p>Full Stack Developer</p></div>
 
-                    </ul>
-                </div>
-                <!-- navbar collapsible content  -->
-            <!-- navbar content  -->
-            </div>
-        </nav>
-        <!-- navbar  -->
-    </section>
-    
-    
-    <div id="carouselExampleCaptions" class="carousel  carousel-fade" >
-      
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-          
-                  <div class="image"><img src="assets/images/cover6.jpg" class="d-block w-100" alt="..."></div>
-     
-            
-          </div>
-          <div class="carousel-item">
-            <img src="assets/images/cover 4.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item image_page">
-            <div class="html-level d-flex justify-content-center align-items-center">
-              <div class="bg-success html d-flex felx-column justify-content-center align-items-center">
-            <span class="fs-3 fw-bold ">HTML<br><span class="level">65%</span></span>
-                    
-          </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-          <defs>
-             <linearGradient id="GradientColor">
-                <stop offset="0%" stop-color="#e91e63" />
-                <stop offset="100%" stop-color="#673ab7" />
-             </linearGradient>
-          </defs>
-          <circle cx="80" cy="80" r="70" stroke-linecap="round" />
-  </svg>
-          </div>
+    </div>
+    <!-- nav -->
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="title">
+            <img src="assets/images/profile copy.png" width="100px" alt="">
+            <h2>Gowtham  <br> Ravi</h2>
+            <p>Full Stack Developer</p>
         </div>
-      </div>
-    <!-- <section class=" container-fluid container-lg">
+        <div class=navbar>
+            <div class="nav-item nav-item-about " >
+                <div class="nav-icon nav-icon-about"><i class="icofont-business-man-alt-2"></i></div>
+                <div class="nav-link nav-link-about"><a href="#hero">Home</a></div>
+            </div>
+            <div class="nav-item nav-item-about " >
+                <div class="nav-icon nav-icon-about"><i class="icofont-business-man-alt-2"></i></div>
+                <div class="nav-link nav-link-about"><a href="#about">About</a></div>
+            </div>
+            <div class="nav-item nav-item-project" >
+                <div class="nav-icon nav-icon-project"><i class="icofont-code"></i></i></div>
+                <div class="nav-link nav-link-project"><a href="#works">Works</a></div>
+            </div>
+            <div class="nav-item nav-item-skill" >
+                <div class="nav-icon nav-icon-skill"><i class="icofont-data"></i></i></div>
+                <div class="nav-link nav-link-skill"><a href="#skills">Skills</a></div>
+            </div>
+            <div class="nav-item nav-item-education" >
+                <div class="nav-icon nav-icon-education"><i class="icofont-graduate"></i></i></div>
+                <div class="nav-link nav-link-education"><a href="#education">Education</a></div>
+            </div>
+            <div class="nav-item nav-item-experience" >
+                <div class="nav-icon nav-icon-experience"><i class="icofont-card"></i></i></div>
+                <div class="nav-link nav-link-experience">Experience</div>
+            </div>
+            <div class="nav-item nav-item-contact" >
+                <div class="nav-icon nav-icon-contact"><i class="icofont-send-mail"></i></i></div>
+                <div class="nav-link nav-link-contact">Contact</div>
+            </div>
+        </div>
+    </div>
+    <!-- sidebar -->
+
+
+    <!-- main  -->
+    <div class="main">
         
-        <div class="row align-items-center">
-            <div class="h4 col-12 col-md-6"> 
-                <h3 class="text-center h1" style="font-weight: 700; ">Personal skills</h3>
-                <ul style="list-style-type: none; font-size: 1.1rem; line-height: 3rem;">
-                <li><i class="bi bi-check2 fs-2 text-warning me-3"></i>Fast learner & pick up the work roles in short span.</li>
-                <li><i class="bi bi-check2 fs-2 text-warning me-3"></i>Adapt to new Technologies in a very short period of time.</li>
-                <li><i class="bi bi-check2 fs-2 text-warning me-3"></i>Hard working, Patient and Reliable.</li>
-                <li><i class="bi bi-check2 fs-2 text-warning me-3"></i>Creative and Positive approach towards problem solving.</li>
-                <li><i class="bi bi-check2 fs-2 text-warning me-3"></i>Good with data and numbers, excellent in Logical Thinking. </li>
-
-                </ul>
+        <!-- hero -->
+        <div class="hero" id="hero">
+            <div class="hero-img-show"><i class="icofont-long-arrow-left"></i></div>
+            <div class="hero-left">
+                <span> Hello, Myself <i class="icofont-thin-left"></i>coder<i class="icofont-thin-right"></i> </span>
+                <h1>Gowtham Ravi.</h1>
+                <h2>I build things for the web.</h2>
+                <p>I’m a Full stack Developer located in Chennai. I have a serious passion for web developing, 
+                    animations and creating intuitive, dynamic user experiences codes.</p>
+                <p>What attracted me towards this profession is the fact that I love technology.
+                    It excites and intrigues me beyond words. Apart from this,  I want to grow in the 
+                    corporate industry which will give me the opportunity to compete and receive great 
+                    respect and admiration from my friends and family. But most of all I like to code. 
+                    I find it very challenging and fascinating.  I want to be on part with today’s 
+                    world by learning about new technologies.</p>
+            </div>
+            <div class="hero-right">
+                <div class="image-box"></div>
+                <img src="assets/images/cover1.png"  alt="">
             </div>
         </div>
-    </section>
-   -->
+        <!-- hero -->
+        
+        <!-- about -->
+        <div class="about" id="about">
+            <div class="about-img-show"><i class="icofont-long-arrow-left"></i></div>
+            <div class="about-right">
+                <div class="image-box"></div>
+                <img src="assets/images/cover2.png"  alt="">
+            </div>
+            <div class="about-left">
+                <span> Who's this guy?  </span>
+                <h1>about.</h1>
+                <h2>I build things for the web.</h2>
+                <p>I’m a Full stack Developer located in Chennai. 
+                I have a serious passion for web developing, 
+                animations and creating intuitive, dynamic user experiences codes.</p>
+                <p>What attracted me towards this profession is the fact that I love technology.
+                 It excites and intrigues me beyond words. Apart from this,  I want to grow in the corporate industry which will give me 
+                 the opportunity to compete and receive great respect and admiration from my
+                  friends and family. But most of all I like to code. I find it very challenging 
+                  and fascinating.  I want to be on par with today’s 
+                    world by learning about new technologies.</p>
+            </div>
+        </div>
+        <!-- about -->
+        
+        <!-- works -->
+        <div class="works" id="works">
+               <h2>Works.</h2>
+            <div class="works-grid">
+                
+                <img src="assets/images/project 1.png"   alt="">
+                <img src="assets/images/project 2.png"   alt="">
+                <img src="assets/images/project 3.png"   alt="">
+                <img src="assets/images/project 1.png"   alt="">
+                <img src="assets/images/project 2.png"   alt="">
+                <img src="assets/images/project 3.png"   alt="">
 
-  
+            </div>
+
+            
+
+            
+        </div>
+        <!-- works -->
+
+
+        <!-- skills -->
+        <div class="skills" id="skills">
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>HTML</H2><div class="number">90%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+        
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>CSS</H2><div class="number">90%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg></div>
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>JavaScript</H2><div class="number">85%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+       
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>Tailwind css</H2><div class="number">75%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>Bootstrap</H2><div class="number">75%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle stroke-linecap="round" /></svg>
+            </div>
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>React</H2><div class="number">80%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>Node js</H2><div class="number">80%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>Mongo DB</H2><div class="number">80%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+            <div class="skill">
+                <div class="outer"><div class="inner"><H2>PhotoShop</H2><div class="number">75%</div></div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" ><circle  stroke-linecap="round" /></svg>
+            </div>
+        
+        
+        </div>
+        <!-- skills -->
+    
+        <!-- education  -->
+        <div class="education" id="education">
+            
+                <div class="card-education-item">
+                    <h2>SSLC-2010</h2>
+                    <div class="card-education-score" >
+                        <img src="assets/images/school-bag.png"  alt="">
+                        <div>
+                            <p>77 %</p>
+                            <span style="color: #8892b0;">Scored</span>
+                        </div>
+                    </div>
+                    <div class="card-education-name">
+                        <h3>St Mary’s Matriculation School</h3>
+                        <p >Mamallapuram,Chennai</p>
+                    </div>
+                </div>
+                <div class="card-education-item">
+                    <h2>HSC-2012</h2>
+                    <div class="card-education-score" >
+                        <img src="assets/images/school.png"  alt="">
+                        <div>
+                            <p>83 %</p>
+                            <span style="color: #8892b0;">Scored</span>
+                        </div>
+                    </div>
+                    <div class="card-education-name">
+                        <h3>Sushil Hari School</h3>
+                        <p >Kelambakkam,Chennai</p>
+                    </div>
+                </div>
+                <div class="card-education-item">
+                    <h2>BE-Mechanical -2016</h2>
+                    <div class="card-education-score" >
+                        <img src="assets/images/3d-buildings.png"  alt="">
+                        <div>
+                            <p> 80 %</p>
+                            <span style="color: #8892b0;">Scored</span>
+                        </div>
+                    </div>
+                    <div class="card-education-name">
+                        <h3>Dhanalakshmi Srinivasan </h3>
+                        <p >Mamallapuram,Chennai</p>
+                    </div>
+                </div>
+                <div class="card-education-item">
+                    <h2>Web Development-2022</h2>
+                    <div class="card-education-score" >
+                        <img src="assets/images/certificate.png"  alt="">
+                        <div>
+                            <p>77 %</p>
+                            <span style="color: #8892b0;">Scored</span>
+                        </div>
+                    </div>
+                    <div class="card-education-name">
+                        <h3>WEB D School</h3>
+                        <p >Vadapalami,Chennai</p>
+                    </div>
+                </div>
+            
+        </div>
+        <!-- education  -->
+
+    </div>
+    <!-- main -->
+
+
+
+
+
+    <script>
+        let navToggle=document.querySelector('.nav-toggle'),
+        navItem=document.querySelectorAll('.nav-item'),
+        sidebar=document.querySelector(".sidebar"),
+        number=document.querySelectorAll(".number"),
+        circle=document.querySelectorAll("circle");
+        
+        // skill set interval count 
+        
+        number.forEach((item,index)=>{
+        console.log(item.innerHTML);
+            if(item.innerHTML=="90%"){
+                counter(90,index);
+                circle[index].style.animation="anima90 2s linear forwards";
+
+            }else if(item.innerHTML=="85%"){
+                counter(85,index);
+                circle[index].style.animation="anima85 2s linear forwards";
+
+            }else if(item.innerHTML=="80%"){
+                counter(80,index);
+                circle[index].style.animation="anima80 2s linear forwards";
+
+            }
+            else if(item.innerHTML=="75%"){
+                counter(75,index);
+                circle[index].style.animation="anima75 2s linear forwards";
+
+            }
+        })
+
+        function counter(e,i){
+            let count=0;
+            setInterval(()=>{
+              
+            if(count==e){
+                clearInterval();
+            }else{
+                count+=1;
+                number[i].innerHTML=count + "%";
+            }
+            },15);
+        }
+           
+
+
+
+
+        // skill set interval count 
+
+      
+        navItem.forEach((item,index)=>{
+            item.addEventListener("click",()=>{
+                item.classList.add("nav-item-bg");
+
+            })
+            item.addEventListener("mouseup",()=>{
+                item.classList.remove("nav-item-bg");
+
+            })
+        })
+
+            
+     
 
 
 
 
 
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
+       
+        navToggle.onclick=()=>{
+            sidebar.classList.toggle("sidebar-left");
+        }
+    </script>
+</body>
 </html>
